@@ -62,23 +62,19 @@ async def wr(message):
         await twitch.say(message.channel, "No game or category currently set.")
 
 async def findGame(name):
-    i = 0
     games = api.search(dt.Game, {"name": name})
     for game in games:
         if game.name.lower() == name.lower():
             print ("Found game: " + game.name)
             return game
-        i += 1
     return {name: "Game not found"}
 
 async def findCategory(game, name):
-    i = 0
     categories = game.categories
     for category in categories:
         if category.name.lower() == name.lower():
             print("Found category: " + category.name)
             return category
-        i += 1
     return {name: "Category not found"}
 
 async def findWR(category):
