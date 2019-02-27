@@ -75,7 +75,6 @@ async def findCategory(game, name):
     i = 0
     categories = game.categories
     for category in categories:
-        #print(category.name)
         if category.name.lower() == name.lower():
             print("Found category: " + category.name)
             return category
